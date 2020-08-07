@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "numeric": "cpp",
+        "xutility": "cpp",
+        "cmath": "cpp",
+        "algorithm": "cpp",
+        "chrono": "cpp",
+        "complex": "cpp",
+        "deque": "cpp",
+        "istream": "cpp",
+        "limits": "cpp",
+        "list": "cpp",
+        "vector": "cpp",
+        "xhash": "cpp",
+        "xlocale": "cpp",
+        "xmemory": "cpp",
+        "xstring": "cpp",
+        "xtree": "cpp",
+        "iostream": "cpp"
+    }
+}

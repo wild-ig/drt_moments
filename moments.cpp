@@ -1,4 +1,8 @@
-#include <iostream>
+/* 
+MIT License
+
+Copyright (c) 2020 wild-ig 
+*/
 #include <vector>
 #include <numeric>
 #include <functional>

@@ -1,3 +1,8 @@
+/* 
+MIT License
+
+Copyright (c) 2020 wild-ig 
+*/
 #include <iostream>
 #include <vector>
 #include <numeric>

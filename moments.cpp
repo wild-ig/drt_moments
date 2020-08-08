@@ -5,10 +5,6 @@ Copyright (c) 2020 wild-ig
 */
 #include <vector>
 #include <numeric>
-#include <functional>
-#include <algorithm>
-#include <opencv2\highgui\highgui.hpp>
-#include <opencv2\core\core.hpp>
 #include <opencv2\opencv.hpp>
 #include "moments.hpp"
 
@@ -32,23 +28,17 @@ void pre_compute_power_arrays(const Size s) {
     const int height = s.height;
 
     //power arrays
-    d1 = new double [width+height*2];
-    d2 = new double [width+height*2];
-    d3 = new double [width+height*2];
-    d4 = new double [width+height*2];
-    a3 = new double [width+height];
+    d1 = new double [width + height];
+    d2 = new double [width + height];
+    d3 = new double [width + height];
+    a3 = new double [width + height];
 
-    for (int k=0; k<height*2+width; ++k)
+    for (int k=0; k< width + height; ++k)
     {
         d1[k] = k;
         double k2 = static_cast<double>(k) * static_cast<double>(k);
         d2[k] = k2;
         d3[k] = k2 * static_cast<double>(k);
-        d4[k] = k2 * k2;
-    }
-
-    for (int k=0; k<height+width; ++k)
-    {
         a3[k] = pow(static_cast<double>(k - width + 1), 3);
     }
 }
@@ -64,11 +54,11 @@ Moments drt_moments(const Mat& image)
 
     // projection arrays
     vector<long> vert(width, 0);
-    vector<long> hor(height, 0);
+    vector<long> horz(height, 0);
     vector<long> diag(width+height, 0);
     vector<long> anti(width+height, 0);
 
-    long* hptr = &hor[0];
+    long* hptr = &horz[0];
     long* vptr = &vert[0];
     long* dptr = &diag[0];
     long* aptr = &anti[height - 1];
@@ -91,11 +81,11 @@ Moments drt_moments(const Mat& image)
 
     m00 = accumulate(begin(vert), end(vert), 0.0);
     m10 = product(vert, d1, width);
-    m01 = product(hor, d1, height);
+    m01 = product(horz, d1, height);
     m20 = product(vert, d2, width);
-    m02 = product(hor, d2, height);
+    m02 = product(horz, d2, height);
     m30 = product(vert, d3, width);
-    m03 = product(hor, d3, height);
+    m03 = product(horz, d3, height);
     m11 = (product(diag, d2, width+height) - m02 - m20) / 2.0;
     double temp_1 = product(diag, d3, width+height) / 6.0;
     double temp_2 = product(anti, a3, width+height) / 6.0;

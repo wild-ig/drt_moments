@@ -7,8 +7,6 @@ Copyright (c) 2020 wild-ig
 #include <vector>
 #include <numeric>
 #include <Windows.h>
-#include <opencv2\highgui.hpp>
-#include <opencv2\core\core.hpp>
 #include <opencv2\opencv.hpp>
 #include "moments.hpp"
 
@@ -59,16 +57,16 @@ int main(int argc, char *argv[]) {
     cout << "DRT: " << t_drt << endl;
     cout << "OCV: " << t_ocv << endl;
 
-    cout << log10(m_drt.m00) << "] m00 [" << log10(m_ocv.m00) << endl;
-    cout << log10(m_drt.m10) << "] m10 [" << log10(m_ocv.m10) << endl;
-    cout << log10(m_drt.m01) << "] m01 [" << log10(m_ocv.m01) << endl;
-    cout << log10(m_drt.m20) << "] m20 [" << log10(m_ocv.m20) << endl;
-    cout << log10(m_drt.m02) << "] m02 [" << log10(m_ocv.m02) << endl;
-    cout << log10(m_drt.m11) << "] m11 [" << log10(m_ocv.m11) << endl;
-    cout << log10(m_drt.m30) << "] m30 [" << log10(m_ocv.m30) << endl;
-    cout << log10(m_drt.m03) << "] m03 [" << log10(m_ocv.m03) << endl;
-    cout << log10(m_drt.m21) << "] m21 [" << log10(m_ocv.m21) << endl;
-    cout << log10(m_drt.m12) << "] m12 [" << log10(m_ocv.m12) << endl;
+    cout << "[" << log10(m_drt.m00) << "] m00 [" << log10(m_ocv.m00) << "]" << endl;
+    cout << "[" << log10(m_drt.m10) << "] m10 [" << log10(m_ocv.m10) << "]" << endl;
+    cout << "[" << log10(m_drt.m01) << "] m01 [" << log10(m_ocv.m01) << "]" << endl;
+    cout << "[" << log10(m_drt.m20) << "] m20 [" << log10(m_ocv.m20) << "]" << endl;
+    cout << "[" << log10(m_drt.m02) << "] m02 [" << log10(m_ocv.m02) << "]" << endl;
+    cout << "[" << log10(m_drt.m11) << "] m11 [" << log10(m_ocv.m11) << "]" << endl;
+    cout << "[" << log10(m_drt.m30) << "] m30 [" << log10(m_ocv.m30) << "]" << endl;
+    cout << "[" << log10(m_drt.m03) << "] m03 [" << log10(m_ocv.m03) << "]" << endl;
+    cout << "[" << log10(m_drt.m21) << "] m21 [" << log10(m_ocv.m21) << "]" << endl;
+    cout << "[" << log10(m_drt.m12) << "] m12 [" << log10(m_ocv.m12) << "]" << endl;
 
 	return 0;
 }

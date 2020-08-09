@@ -8,6 +8,7 @@
                 "/I",
                 "c:\\opencv\\build\\include",
                 //"/Zi",
+                "/arch:AVX2",
                 "/O2",
                 "/EHsc",
                 "/Fe:",

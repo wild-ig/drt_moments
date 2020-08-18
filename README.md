@@ -6,5 +6,21 @@ For a grayscale image or pixel array of size (N, M), the calculation of raw imag
 More information can be found [here](https://en.wikipedia.org/wiki/Image_moment)
 
 ### The Discrete Radon Transformation
-The DRT algorithm reduces this problem from 2D moments of an NxM array, to 1D moments of 4 projection arrays. The original image can be projected vertically, horizontally, at 45 & 135 degrees, and hen summed along those axes. The raw moments then become linear combinations of 1D moments of these arrays and there is no loss of information. This reduces the number of multiplications from O(N.M) to O(N+M). See the timings on an Intel Core i5 7th Gen. Note, the Naive algorithm is the baseline O(N.M); the OpenCV algorithm and resultant timings are with and without SSE2/AVX optimisation; the DRT algorithm and times are also shown with and without SSE2/AVX optimisation: 
+The DRT algorithm reduces this problem from 2D moments of an NxM array, to 1D moments of 4 projection arrays. The original image can be projected vertically, horizontally, at 45 & 135 degrees, and hen summed along those axes. The raw moments then become linear combinations of 1D moments of these arrays and there is no loss of information. This reduces the number of multiplications from O(N.M) to O(N+M). See the timings on an Intel Core i5 7th Gen. Note, the Naive algorithm is the baseline O(N.M); the OpenCV algorithm and resultant timings are with and without SSE2/AVX optimisation; the DRT algorithm and times are also shown with and without SSE2/AVX optimisation
+
+###Results
+
+| Algorithm<br>Image Size |  Naïve |   OCV | OCV-AVX2 |  DRT | DRT-AVX2 |
+|:-----------------------:|-------:|------:|---------:|-----:|---------:|
+|        4032x3024        | 472386 | 17373 |     8700 | 5600 |     3330 |
+|        3000x3000        | 348870 | 12840 |     6400 | 4000 |     2390 |
+|        2000x2000        | 153940 |  5540 |     2800 | 1500 |      856 |
+|        1500x1500        |  85810 |  3100 |     1600 |  870 |      485 |
+|        1000x1000        |  37320 |  1374 |      710 |  390 |      223 |
+|         750x750         |  21123 |   775 |      410 |  220 |      127 |
+|         400x400         |   5932 |   222 |      110 |   69 |       38 |
+|         200x200         |   1459 |    56 |       29 |   19 |       12 |
+  
+  
+
 ![Timings](https://github.com/wild-ig/drt_moments/raw/master/DRTvsOpenCV.png)

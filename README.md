@@ -1,5 +1,5 @@
 # ImageMoments
-Accurate calculation of raw image moments with O(N+M) multiplications for grayscale images. 
+Accurate calculation of raw image moments with O(N+M) multiplications for grayscale images. See article [here](https://arxiv.org/abs/2008.11083).
 
 ### Raw Image Moments
 For a grayscale image or pixel array of size (N, M), the calculation of raw image moments typically requires O(N.M) multiplications, this can be very costly for large images (for binary images there are much faster methods, they won't be discussed here). 
